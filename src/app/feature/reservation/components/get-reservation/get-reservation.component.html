@@ -1,1 +1,25 @@
-<p>get-reservation works!</p>
+<section class="section-reservation">
+  <div class="card table-responsive">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Fecha de Llegada</th>
+          <th scope="col">Fecha de Salida</th>
+          <th scope="col">Destino</th>
+          <th scope="col">Numero de Estrellas</th>
+          <th scope="col">Precio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of reservations">
+          <td>{{item.checkIn}}</td>
+          <td>{{item.checkOut}}</td>
+          <td>{{item.destination.city}} - {{item.destination.country}}</td>
+          <td>{{item.destination.hotel.numberStars}}</td>
+          <td>{{item.price | currency }} </td>
+          <td> <app-delete-reservation [id]="item.id"></app-delete-reservation> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

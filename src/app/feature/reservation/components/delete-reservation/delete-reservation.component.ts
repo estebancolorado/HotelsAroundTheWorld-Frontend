@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ReservationService } from '../../shared/service/reservation.service';
 
 @Component({
   selector: 'app-delete-reservation',
   templateUrl: './delete-reservation.component.html',
   styleUrls: ['./delete-reservation.component.css']
 })
-export class DeleteReservationComponent implements OnInit {
+export class DeleteReservationComponent
+{
+  @Input() id: number;
 
-  constructor() { }
+  constructor(private reservationService: ReservationService) { }
 
-  ngOnInit(): void {
+  onDelete(): void
+  {
+    this.reservationService.delete(this.id).subscribe(() =>
+    {
+      location.reload();
+    });
   }
-
 }
