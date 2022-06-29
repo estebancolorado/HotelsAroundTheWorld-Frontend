@@ -45,7 +45,7 @@ pipeline {
     stage('NPM Install') {
       steps {
         echo "------------>Installing<------------"
-        sh 'npm install'
+        sh 'npm install --force'
       }
     }
 
