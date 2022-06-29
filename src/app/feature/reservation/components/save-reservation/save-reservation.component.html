@@ -5,31 +5,22 @@
        <div class="row">
         <div class="col">
           <label for="validationCustom04" class="form-label">Destino</label>
-          <select class="form-select" formControlName="destination" required>
+          <select class="form-select" formControlName="destination" id="destination" required>
             <option selected disabled value="">Elige un destino...</option>
             <option *ngFor="let city of cities">{{city.name}}</option>
           </select>
-          <div class="invalid-feedback">
-            Por favor seleccione un destino
-          </div>
         </div>
         <div class="col">
           <label for="validationCustom03" class="form-label">Fecha de Llegada</label>
-          <input type="date" class="form-control" formControlName="checkIn" required>
-          <div class="invalid-feedback" *ngIf="true">
-            Por favor elige una fehca de llegada
-          </div>
+          <input type="date" class="form-control" formControlName="checkIn" id="checkIn" required>
         </div>
         <div class="col">
           <label for="validationCustom03" class="form-label">Fecha de Salida</label>
-          <input type="date" class="form-control" formControlName="checkOut" required>
-          <div class="invalid-feedback" *ngIf="true">
-            Por favor elige una fecha de salida
-          </div>
+          <input type="date" class="form-control" formControlName="checkOut" id="checkOut" required>
         </div>
         <div class="col">
           <label for="validationCustom04" class="form-label">Estrellas del Hotel</label>
-          <select class="form-select" formControlName="numberStars" required>
+          <select class="form-select" formControlName="numberStars" id="numberStars" required>
             <option selected disabled value="">Elige el número de estrellas...</option>
             <option>1</option>
             <option>2</option>
@@ -37,28 +28,19 @@
             <option>4</option>
             <option>5</option>
           </select>
-          <div class="invalid-feedback">
-            Por favor seleccione una estrella para el hotel
-          </div>
         </div>
         <div class="col">
           <label for="validationCustom03" class="form-label">Habitaciones</label>
-          <input type="number" class="form-control" formControlName="numberRooms" required>
-          <div class="invalid-feedback" *ngIf="true">
-            Por favor elige un huesped
-          </div>
+          <input type="number" class="form-control" formControlName="numberRooms" id="numberRooms" required>
         </div>
         <div class="col">
           <label for="validationCustom03" class="form-label">Huespedes</label>
-          <input type="number" class="form-control" formControlName="numberGuests" required>
-          <div class="invalid-feedback" *ngIf="true">
-            Por favor elige un huesped
-          </div>
+          <input type="number" class="form-control" formControlName="numberGuests" id="numberGuests" required>
         </div>
        </div>
        <div class="row btn-reserve">
         <div col-12>
-          <button class="btn btn-primary" type="submit">Hacer Reservación</button>
+          <button class="btn btn-primary" type="submit" id="reserve">Hacer Reservación</button>
         </div>
       </div>
     </form>

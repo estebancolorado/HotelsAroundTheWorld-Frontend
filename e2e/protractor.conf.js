@@ -14,7 +14,21 @@ exports.config = {
     './src/**/*.e2e-spec.ts'
   ],
   capabilities: {
-    'browserName': 'chrome'
+    'browserName': 'chrome',
+    acceptInsecureCerts: true,
+    acceptSslCerts: true,
+    chromeOptions: {
+      'args': [
+        '--headless',
+        '--disable-gpu',
+        '--test-type=browser',
+        '--disable-extensions',
+        '--no-sandbox',
+        '--disable-infobars',
+        '--window-size=1920,1080',
+         "--disable-gpu",
+      ]
+    }
   },
   directConnect: true,
   baseUrl: 'http://localhost:4200/',
@@ -28,10 +42,13 @@ exports.config = {
     require('ts-node').register({
       project: require('path').join(__dirname, './tsconfig.json')
     });
+
+    // @ts-ignore
     jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
+    // @ts-ignore
     jasmine.getEnv().addReporter(new HtmlReporter({
       baseDirectory: 'tmp/screenshots'
    }).getJasmine2Reporter());
-    
+
   }
 };

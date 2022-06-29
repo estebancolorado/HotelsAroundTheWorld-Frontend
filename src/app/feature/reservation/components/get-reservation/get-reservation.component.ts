@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ReservationSummary } from '../../shared/model/reservation-summary';
 import { ReservationService } from '../../shared/service/reservation.service';
 
@@ -9,7 +10,7 @@ import { ReservationService } from '../../shared/service/reservation.service';
 })
 export class GetReservationComponent implements OnInit
 {
-  reservations: ReservationSummary[];
+  public reservations: Observable<ReservationSummary[]>;
 
   constructor(private reservationService: ReservationService) { }
 
@@ -20,9 +21,6 @@ export class GetReservationComponent implements OnInit
 
   private getAll()
   {
-    this.reservationService.getAll().subscribe((res) =>
-    {
-      this.reservations = res;
-    });
+    this.reservations = this.reservationService.getAll();
   }
 }
