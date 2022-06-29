@@ -4,7 +4,7 @@ export class GetReservationsPage
 {
   private listReservations = element.all(by.id('listReservations'));
 
-  async numeroDeAlquileres(): Promise<number>
+  async calculateNumberReservations(): Promise<number>
   {
     return await this.listReservations.count();
   }

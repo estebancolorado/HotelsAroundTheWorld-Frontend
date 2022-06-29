@@ -1,13 +1,13 @@
 import { by, element } from 'protractor';
 
-export class CrearAlquilerPage
+export class SaveReservationPage
 {
-  private destination = element(by.name('destination'));
-  private checkIn = element(by.name('checkIn'));
-  private checkOut = element(by.name('checkOut'));
-  private numberStars = element(by.name('numberStars'));
-  private rooms = element(by.name('numberRooms'));
-  private numberGuests = element(by.name('numberGuests'));
+  private destination = element(by.id('destination'));
+  private checkIn = element(by.id('checkIn'));
+  private checkOut = element(by.id('checkOut'));
+  private numberStars = element(by.id('numberStars'));
+  private rooms = element(by.id('numberRooms'));
+  private numberGuests = element(by.id('numberGuests'));
   private buttonReserve = element(by.id('reserve'));
   private swalFireTitle = element(by.className('swal2-title'));
 

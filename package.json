@@ -10,7 +10,8 @@
     "test": "ng test --code-coverage",
     "test:mutation": "stryker run",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "start_custom": "concurrently \"npm run e2e \" \"npm run json:server\""
   },
   "private": true,
   "dependencies": {
