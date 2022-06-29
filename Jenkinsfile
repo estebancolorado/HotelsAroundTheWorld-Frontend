@@ -52,7 +52,7 @@ pipeline {
     stage('Unit Test') {
       steps {
         echo "------------>Testing<------------"
-        sh 'npx ng test --watch=false --browsers ChromeHeadless --code-coverage'
+        sh 'npm ng test --watch=false --browsers ChromeHeadless --code-coverage'
       }
     }
 
