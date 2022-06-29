@@ -1,0 +1,37 @@
+:root
+{
+  --font-Roboto: 'Roboto', sans-serif;
+  --thin: 100;
+	--light: 300;
+	--regular: 400;
+	--medium: 500;
+	--bold: 700;
+  --black: 900;
+  --ceiba-green: #10d25f;
+  --ceiba-blue: #004951;
+  --soft-orange: #ffe9d5;
+  --soft-blue: #e7f5ff;
+  --warm-black: #282623;
+  --black: #201e1c;
+  --grey: #bababa;
+  --off-white: #faf8f7;
+  --just-white: #fff;
+}
+
+*
+{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-Roboto);
+}
+
+html
+{
+  font-size: 62.5%;
+}
+
+body
+{
+  font-size: 1.4rem;
+}

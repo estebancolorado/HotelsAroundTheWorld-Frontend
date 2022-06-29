@@ -1,0 +1,19 @@
+<section class="nav-container">
+  <div class="container-fluid nav">
+    <div class="row">
+        <div class="col-sm-auto  bg-light sticky-top">
+            <div class="d-flex flex-sm-column">
+                <a  routerLink="./save" class="p-3 link-dark text-decoration-none"  data-bs-placement="right" id ="saveReservation" >
+                    Crear
+                </a>
+                <a  routerLink="./getAll" class="p-3 link-dark text-decoration-none" data-bs-placement="right" id ="getReservations">
+                    Listar
+                </a>
+            </div>
+        </div>
+        <div class="col-sm  vw-100">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+  </div>
+</section>

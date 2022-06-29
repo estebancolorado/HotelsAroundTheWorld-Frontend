@@ -1,0 +1,16 @@
+<div class="card table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Value</th>
+        <th scope="col">Validity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let trm of listTrm">
+        <td>{{ trm.valor | currency }}</td>
+        <td>{{ trm.vigenciadesde | date}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,45 @@
+header
+{
+  background-image: url('../../../assets/images/header-image.jpg');
+  height: 100vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.header__information
+{
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 80vh;
+}
+
+.header__information h1
+{
+  color: var(--just-white);
+  font-size: 5rem;
+}
+
+.header__information p
+{
+  color: var(--just-white);
+  font-size: 1.8rem;
+}
+
+.trm-table
+{
+  padding: 20px;
+
+}
+
+.trm-table__title
+{
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  padding-bottom: 15px;
+  color: var(--ceiba-blue);
+}

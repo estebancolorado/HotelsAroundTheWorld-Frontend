@@ -1,0 +1,15 @@
+*
+{
+  font-size: 1.6rem;
+}
+
+.nav
+{
+  background-image: url('../../../../../assets/images/reserve-image-two.jpg');
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
