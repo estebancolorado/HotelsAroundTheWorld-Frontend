@@ -37,7 +37,7 @@ pipeline {
 
    stage('clean') {
       steps{
-	sh 'npm cache clean --force'
+	    sh 'npm cache clean --force'
 
       }
     }
@@ -45,21 +45,21 @@ pipeline {
     stage('NPM Install') {
       steps {
         echo "------------>Installing<------------"
-        sh 'npm install --force'
+        sh 'npm install'
       }
     }
 
     stage('Unit Test') {
       steps {
         echo "------------>Testing<------------"
-        sh 'npx ng test --browsers=ChromeHeadless --watch=false --code-coverage'
+        sh 'npm run test -- --watch=false --browsers ChromeHeadless'
       }
     }
 
     stage('Test end-to-end') {
       steps{
         echo "------------>Testing Protractor<------------"
-	  sh 'npm run e2e'
+	      sh 'npm run e2e'
       }
     }
 
