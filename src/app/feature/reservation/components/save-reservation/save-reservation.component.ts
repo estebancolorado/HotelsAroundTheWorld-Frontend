@@ -5,6 +5,7 @@ import { City } from '../../shared/model/city';
 import { Reservation } from '../../shared/model/reservation';
 import { ReservationService } from '../../shared/service/reservation.service';
 import Swal from 'sweetalert2';
+import { CityService } from '../../shared/service/city.service';
 
 @Component({
   selector: 'app-save-reservation',
@@ -18,16 +19,58 @@ export class SaveReservationComponent implements OnInit
 
   numberRooms: number;
   numberGuests: number;
-  cities: City[] = [new City('Cartagena', 'Colombia'), new City('París', 'Francia'), new City('Londres', 'Inglaterra'), new City('Atenas', 'Grecia'), new City('Roma', 'Italia'), new City('Varsovia', 'Polonia'), new City('Budapest', 'Hungría'), new City('Dubái', 'Emiratos Árabes Unidos'), new City('Lyon', 'Francia'), new City('Berlín', 'Alemania'), new City('Ámsterdam', 'Paises Bajos'), new City('Nueva York', 'Estados Unidos de America'), new City('Florencia', 'Italia'), new City('Tokyo', 'Japón'), new City('Bogota', 'Colombia'), new City('Cancún', 'Mexico')];
+  cities: City[] = [];
 
-  constructor(private datePipe: DatePipe, private reservationService: ReservationService) { }
+  constructor(private datePipe: DatePipe, private reservationService: ReservationService, private cityService: CityService) { }
 
   ngOnInit(): void
   {
+    this.cityService.getCities().subscribe((response: City[]) =>
+    {
+      this.cities = response;
+    });
+
     this.buildFormReservation();
   }
 
   save(): void
+  {
+    this.buildReservation();
+
+    if(this.formReservation.valid)
+    {
+      this.reservationService.save(this.reservation).subscribe(() =>
+      {
+        this.formReservation.reset();
+        Swal.fire({
+          icon: 'success',
+          title: 'La reservación se ha realizado de forma exitosa',
+          timer: 2000
+        });
+      }, (error) =>
+      {
+        Swal.fire
+        // eslint-disable-next-line no-unexpected-multiline
+        ({
+          icon:'error',
+          title: error.error.mensaje,
+          timer: 2000,
+          showCancelButton: false,
+          showConfirmButton: false
+        });
+      });
+    }
+    else
+    {
+      Swal.fire({
+        icon: 'error',
+        title: 'Faltan campos por diligenciar',
+        timer: 2000,
+      });
+    }
+  }
+
+  private buildReservation()
   {
     const destinationInput = this.formReservation.get('destination')?.value;
 
@@ -66,27 +109,6 @@ export class SaveReservationComponent implements OnInit
     }
 
     this.reservation.destination.hotel.rooms = rooms;
-
-    if(this.formReservation.valid)
-    {
-      Swal.fire({
-        icon: 'success',
-        title: 'La reservación se ha realizado de forma exitosa',
-        timer: 2000
-      });
-      this.reservationService.save(this.reservation).subscribe(() =>
-      {
-        this.formReservation.reset();
-      });
-    }
-    else
-    {
-      Swal.fire({
-        icon: 'error',
-        title: 'Faltan campos por diligenciar',
-        timer: 2000,
-      });
-    }
   }
 
   private buildFormReservation()

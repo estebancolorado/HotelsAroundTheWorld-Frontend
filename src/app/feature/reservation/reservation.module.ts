@@ -8,6 +8,8 @@ import { ReservationComponent } from './components/reservation/reservation.compo
 import { SaveReservationComponent } from './components/save-reservation/save-reservation.component';
 import { ReservationRoutingModule } from './reservation-routing.module';
 import { ReservationService } from './shared/service/reservation.service';
+import { HttpClientModule } from '@angular/common/http';
+import { CityService } from './shared/service/city.service';
 
 @NgModule({
   declarations: [
@@ -19,8 +21,9 @@ import { ReservationService } from './shared/service/reservation.service';
   imports: [
     CommonModule,
     ReservationRoutingModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [ReservationService, DatePipe]
+  providers: [ReservationService, CityService, DatePipe]
 })
 export class ReservationModule { }

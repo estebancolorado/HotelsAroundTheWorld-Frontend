@@ -10,7 +10,7 @@ describe('TrmComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ TrmComponent ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

@@ -11,7 +11,7 @@ export class ManejadorError implements ErrorHandler {
     this.imprimirErrorConsola(mensajeError);
   }
 
-  private mensajePorDefecto(error) {
+  private mensajePorDefecto(error: string | Error) {
     if (error instanceof HttpErrorResponse) {
       if (!navigator.onLine) {
         return HTTP_ERRORES_CODIGO.NO_HAY_INTERNET;
@@ -23,7 +23,7 @@ export class ManejadorError implements ErrorHandler {
     return error;
   }
 
-  private imprimirErrorConsola(mensaje): void {
+  private imprimirErrorConsola(mensaje: any): void {
     const respuesta = {
       fecha: new Date().toLocaleString(),
       path: window.location.href,
@@ -31,6 +31,8 @@ export class ManejadorError implements ErrorHandler {
     };
     if (!environment.production) {
       window.console.error('Error inesperado:\n', respuesta);
+      console.log(respuesta.mensaje);
+      window.localStorage.setItem('error', respuesta.mensaje);
     }
   }
 

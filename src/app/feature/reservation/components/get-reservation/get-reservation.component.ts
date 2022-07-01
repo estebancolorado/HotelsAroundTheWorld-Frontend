@@ -16,11 +16,11 @@ export class GetReservationComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.getAll();
+    this.reservations = this.getAll();
   }
 
-  private getAll()
+  public getAll()
   {
-    this.reservations = this.reservationService.getAll();
+    return this.reservationService.getAll();
   }
 }

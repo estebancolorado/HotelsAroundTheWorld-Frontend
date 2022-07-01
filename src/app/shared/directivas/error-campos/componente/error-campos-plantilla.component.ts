@@ -7,10 +7,11 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@a
 } `],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ErrorCamposPlantillaComponent {
+export class ErrorCamposPlantillaComponent
+{
   mensajeError;
   ocultar = true;
-    
+
   constructor(private cdr: ChangeDetectorRef) {
   }
 

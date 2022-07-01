@@ -4,7 +4,6 @@ import { Observable, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 
-
 const UNAUTHORIZED = 401;
 const FORBIDDEN = 403;
 
@@ -12,7 +11,7 @@ const FORBIDDEN = 403;
 export class AuthInterceptor implements HttpInterceptor {
 
   constructor(private readonly router: Router) { }
-  
+
   intercept<T,R>(req: HttpRequest<T>, next: HttpHandler):
   Observable<HttpEvent<R>> {
 

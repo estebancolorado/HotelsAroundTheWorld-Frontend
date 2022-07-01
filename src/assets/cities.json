@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Cartagena",
+    "country": "Colombia"
+  },
+  {
+    "name": "París",
+    "country": "Francia"
+  },
+  {
+    "name": "Londres",
+    "country": "Inglaterra"
+  },
+  {
+    "name": "Atenas",
+    "country": "Grecia"
+  },
+  {
+    "name": "Roma",
+    "country": "Italia"
+  },
+  {
+    "name": "Varsovia",
+    "country": "Polonia"
+  },
+  {
+    "name": "Budapest",
+    "country": "Hungría"
+  },
+  {
+    "name": "Dubái",
+    "country": "Emiratos Árabes Unido"
+  },
+  {
+    "name": "Lyon",
+    "country": "Francia"
+  },
+  {
+    "name": "Berlín",
+    "country": "Alemania"
+  },
+  {
+    "name": "Ámsterdam",
+    "country": "Paises Bajos"
+  },
+  {
+    "name": "Nueva York",
+    "country": "Estados Unidos de America"
+  },
+  {
+    "name": "Florencia",
+    "country": "Italia"
+  },
+  {
+    "name": "Tokyo",
+    "country": "Japón"
+  },
+  {
+    "name": "Bogota",
+    "country": "Colombia"
+  },
+  {
+    "name": "Cancún",
+    "country": "Mexico"
+  }
+]
