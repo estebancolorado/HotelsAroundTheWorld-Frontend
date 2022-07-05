@@ -10,6 +10,7 @@ import { ReservationRoutingModule } from './reservation-routing.module';
 import { ReservationService } from './shared/service/reservation.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CityService } from './shared/service/city.service';
+import { Notifications } from '@shared/directivas/notifications';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,6 @@ import { CityService } from './shared/service/city.service';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [ReservationService, CityService, DatePipe]
+  providers: [ReservationService, CityService, Notifications, DatePipe]
 })
 export class ReservationModule { }

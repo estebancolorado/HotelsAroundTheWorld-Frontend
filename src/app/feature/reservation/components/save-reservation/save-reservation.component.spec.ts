@@ -8,6 +8,7 @@ import { ReservationService } from '../../shared/service/reservation.service';
 import { SaveReservationComponent } from './save-reservation.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Notifications } from '@shared/directivas/notifications';
 
 describe('SaveReservationComponent', () =>
 {
@@ -26,7 +27,7 @@ describe('SaveReservationComponent', () =>
         ReactiveFormsModule,
         FormsModule
       ],
-      providers: [ReservationService, DatePipe, HttpService],
+      providers: [ReservationService, DatePipe, HttpService, Notifications],
     })
       .compileComponents();
   }));

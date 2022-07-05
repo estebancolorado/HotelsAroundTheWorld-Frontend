@@ -4,8 +4,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { City } from '../../shared/model/city';
 import { Reservation } from '../../shared/model/reservation';
 import { ReservationService } from '../../shared/service/reservation.service';
-import Swal from 'sweetalert2';
 import { CityService } from '../../shared/service/city.service';
+import { Notifications } from '@shared/directivas/notifications';
 
 @Component({
   selector: 'app-save-reservation',
@@ -21,7 +21,7 @@ export class SaveReservationComponent implements OnInit
   numberGuests: number;
   cities: City[] = [];
 
-  constructor(private datePipe: DatePipe, private reservationService: ReservationService, private cityService: CityService) { }
+  constructor(private datePipe: DatePipe, private reservationService: ReservationService, private cityService: CityService, private notifications: Notifications) { }
 
   ngOnInit(): void
   {
@@ -42,31 +42,15 @@ export class SaveReservationComponent implements OnInit
       this.reservationService.save(this.reservation).subscribe(() =>
       {
         this.formReservation.reset();
-        Swal.fire({
-          icon: 'success',
-          title: 'La reservación se ha realizado de forma exitosa',
-          timer: 2000
-        });
+        this.notifications.getNotification('La reservación se ha realizado de forma exitosa', 'success');
       }, (error) =>
       {
-        Swal.fire
-        // eslint-disable-next-line no-unexpected-multiline
-        ({
-          icon:'error',
-          title: error.error.mensaje,
-          timer: 2000,
-          showCancelButton: false,
-          showConfirmButton: false
-        });
+        this.notifications.getNotification(error.error.mensaje, 'error');
       });
     }
     else
     {
-      Swal.fire({
-        icon: 'error',
-        title: 'Faltan campos por diligenciar',
-        timer: 2000,
-      });
+      this.notifications.getNotification('Faltan campos por diligenciar', 'error');
     }
   }
 
